@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container-narrow flex items-center justify-between h-16 px-5 md:px-8 lg:px-16">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-0">
           <Heart className="h-7 w-7 text-accent fill-accent" />
           <span className="font-heading font-bold text-xl text-foreground">Hearthive</span>
         </Link>

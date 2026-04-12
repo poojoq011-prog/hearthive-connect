@@ -6,12 +6,12 @@ const Footer = () => (
     <div className="container-narrow section-padding">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-0 mb-4">
             <Heart className="h-6 w-6 text-accent fill-accent" />
             <span className="font-heading font-bold text-lg">Hearthive</span>
           </div>
           <p className="text-sm text-primary-foreground/70 leading-relaxed">
-            Connecting donors with orphanages and NGOs in need. Making donating simple, transparent, and meaningful.
+            Connecting donors with verified orphanages and NGOs, ensuring every donation is clear, direct, and accountable
           </p>
         </div>
 

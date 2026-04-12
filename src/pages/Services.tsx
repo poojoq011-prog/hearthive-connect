@@ -6,11 +6,11 @@ import SectionHeading from "@/components/SectionHeading";
 import { Package, ShieldCheck, Truck, CreditCard, BarChart3, ChevronDown, ChevronUp } from "lucide-react";
 
 const services = [
-  { icon: Package, title: "Donating Clothes, Books, Food & Money", desc: "We help donors provide clothes, books, food, and financial support to orphanages and NGOs. All donations are verified and delivered to the right beneficiaries safely and transparently." },
-  { icon: ShieldCheck, title: "Orphanage & NGO Verification", desc: "We verify orphanages and NGOs before listing them on our platform to ensure that donations reach genuine and trustworthy organizations." },
-  { icon: Truck, title: "Doorstep Donation Pickup", desc: "We offer pickup services for physical donations like clothes and books from your location and deliver them directly to the needy organizations." },
-  { icon: CreditCard, title: "Online Donation Support", desc: "Users can donate money easily through our platform with secure payment options and receive updates on how their contributions are used." },
-  { icon: BarChart3, title: "Impact Tracking & Updates", desc: "Donors receive updates, photos, or reports showing how their donations are making a real difference in the lives of children and communities." },
+  { icon: Package, title: "Donating Clothes, Books, Food & Money", desc: "Choose how you want to contribute—items or funds. We ensure everything is directed to verified orphanages and NGOs where it is actually needed." },
+  { icon: ShieldCheck, title: "Orphanage & NGO Verification", desc: "Every organization is reviewed before being listed. This ensures your donations go only to genuine and accountable beneficiaries." },
+  { icon: Truck, title: "Doorstep Donation Pickup", desc: "Schedule a pickup from your location for physical donations. No travel or coordination needed—we handle collection and delivery." },
+  { icon: CreditCard, title: "Online Donation Support", desc: "Contribute money through a simple and secure process. Designed to make giving straightforward without unnecessary steps." },
+  { icon: BarChart3, title: "Impact Tracking & Updates", desc: "Receive updates after your donation is delivered. Stay informed with visibility into how your contribution is being used." },
 ];
 
 const faqs = [
@@ -47,7 +47,7 @@ const Services = () => (
       <div className="container-narrow section-padding text-center">
         <h1 className="font-heading text-3xl md:text-4xl font-extrabold text-primary-foreground mb-4">Our Services</h1>
         <p className="text-primary-foreground/80 max-w-lg mx-auto">
-          Discover how Hearthive makes donating simple, transparent, and impactful.
+          Clear, verified pathways to support orphanages and NGOs that genuinely need help
         </p>
       </div>
     </section>

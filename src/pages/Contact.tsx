@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -44,11 +45,30 @@ const Contact = () => {
       return;
     }
     setSubmitting(true);
+    emailjs.send(
+      "service_sncvs3b",
+      "template_q7f9tf8",
+      {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        donationType: form.donationType,
+        message: form.message,
+      },
+      "WefqvNMdPlbMt9etZ"
+    )
+      .then(() => {
+        toast({ title: "Success ", description: "Message sent successfully!" });
+        setForm({ name: "", email: "", phone: "", donationType: "", message: "" });
+      })
+      .catch((error) => {
+        console.log(error);
+        toast({ title: "Error ", description: "Failed to send message" });
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
 
-    const text = `Hi, I'd like to donate!\n\nName: ${encodeURIComponent(result.data.name)}\nEmail: ${encodeURIComponent(result.data.email)}\nPhone: ${encodeURIComponent(result.data.phone)}\nDonation Type: ${encodeURIComponent(result.data.donationType)}${result.data.message ? `\nMessage: ${encodeURIComponent(result.data.message)}` : ""}`;
-    window.open(`https://wa.me/917904916846?text=${text}`, "_blank");
-
-    toast({ title: "Thank you!", description: "Redirecting you to WhatsApp to complete your donation inquiry." });
     setSubmitting(false);
     setForm({ name: "", email: "", phone: "", donationType: "", message: "" });
   };
@@ -62,7 +82,7 @@ const Contact = () => {
         <div className="container-narrow section-padding text-center">
           <h1 className="font-heading text-3xl md:text-4xl font-extrabold text-primary-foreground mb-4">Contact Us</h1>
           <p className="text-primary-foreground/80 max-w-lg mx-auto">
-            Have questions or ready to donate? Reach out to us — we'd love to hear from you.
+            Start your donation with clarity and the right guidance
           </p>
         </div>
       </section>
@@ -75,7 +95,7 @@ const Contact = () => {
             <div className="space-y-6">
               <h2 className="font-heading text-xl font-bold text-foreground">Get in Touch</h2>
               <p className="text-muted-foreground">
-                Whether you want to donate, partner with us, or learn more about Hearthive, we're here to help.
+                Whether you want to donate, schedule a pickup, or understand how the process works, reach out and we’ll guide you step by step.
               </p>
 
               <div className="space-y-4">
@@ -104,7 +124,7 @@ const Contact = () => {
                   <div className="bg-primary/10 p-3 rounded-lg"><MapPin className="h-5 w-5 text-primary" /></div>
                   <div>
                     <p className="text-xs text-muted-foreground">Address</p>
-                    <p className="font-medium">NO:4 Salaima Nagar, Vyasarpadi, Chennai 39</p>
+                    <p className="font-medium">NO:4, Salaima Nagar, Vyasarpadi, Chennai 39</p>
                   </div>
                 </div>
               </div>

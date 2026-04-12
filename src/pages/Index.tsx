@@ -4,8 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import SectionHeading from "@/components/SectionHeading";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import heroImage from "@/assets/hero-image.jpg";
-import { ShieldCheck, Eye, RefreshCw, Heart, Package, Truck, CreditCard, BarChart3, CheckCircle, Quote } from "lucide-react";
+import { ShieldCheck, Eye, RefreshCw, Heart, Package, Truck, CreditCard, BarChart3, CheckCircle } from "lucide-react";
 
 const services = [
   { icon: Package, title: "Donating Clothes, Books, Food & Money", desc: "We help donors provide clothes, books, food, and financial support to orphanages and NGOs." },
@@ -42,13 +43,13 @@ const Index = () => (
           </div>
           <div>
             <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ color: "hsl(32 90% 68%)", background: "hsl(32 90% 68% / 0.15)" }}>
-              Making Donations Meaningful
+              Built for individuals who want to support orphanages and NGOs without uncertainty
             </span>
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-tight mb-4">
-              Connect, Donate, <br className="hidden md:block" />Change Lives
+              Make Donations That Reach the Right People
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg mb-8 max-w-md">
-              Hearthive connects donors with orphanages and NGOs in need. Contribute money, food, and essential items easily and transparently.
+              Hearthive connects you with verified organizations, ensuring your contributions—money, food, clothes, or books—are delivered safely, transparently, and with real impact.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button variant="cta" size="lg" asChild>
@@ -82,14 +83,18 @@ const Index = () => (
     {/* Services */}
     <section className="section-padding bg-background">
       <div className="container-narrow">
-        <SectionHeading label="What We Do" title="Our Services" description="We bridge the gap between donors and real needs through verified and transparent services." />
+        <SectionHeading 
+          label="What We Do" 
+          title="Our Services" 
+          description="We bridge the gap between donors and real needs through verified and transparent services." 
+        />
         <div className="grid md:grid-cols-3 gap-6">
           {services.slice(0, 3).map((s, i) => (
             <div key={i} className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-shadow">
               <div className="bg-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                 <s.icon className="h-6 w-6 text-accent" />
               </div>
-              <h3 className="font-heading font-semibold text-foreground mb-2">{s.title}</h3>
+              <h3 className="font-heading font-semibold text-foreground mb-2 text-lg">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
             </div>
           ))}
@@ -100,7 +105,7 @@ const Index = () => (
               <div className="bg-accent/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                 <s.icon className="h-6 w-6 text-accent" />
               </div>
-              <h3 className="font-heading font-semibold text-foreground mb-2">{s.title}</h3>
+              <h3 className="font-heading font-semibold text-foreground mb-2 text-lg">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
             </div>
           ))}
@@ -134,17 +139,9 @@ const Index = () => (
 
     {/* Testimonial section between Process and CTA */}
     <section className="section-padding bg-background">
-      <div className="container-narrow max-w-2xl">
-        <div className="bg-card rounded-2xl p-8 border border-border text-center">
-          <Quote className="h-8 w-8 text-accent mx-auto mb-4" />
-          <p className="text-foreground italic leading-relaxed mb-6">
-            "I wanted to support orphanages but didn't know how to start. Hearthive helped me connect with genuine organizations and ensured my donation reached the right place."
-          </p>
-          <div>
-            <p className="font-heading font-semibold text-foreground">Karthik S.P</p>
-            <p className="text-sm text-muted-foreground">Working Professional, Bangalore</p>
-          </div>
-        </div>
+      <div className="container-narrow">
+        <SectionHeading label="What People Say" title="Testimonials" />
+        <TestimonialCarousel />
       </div>
     </section>
 

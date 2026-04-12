@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    --primary: 215 80% 48%;
+    --primary: 210 65% 58%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%;
@@ -24,7 +24,7 @@
     --muted: 210 30% 95%;
     --muted-foreground: 215 15% 50%;
 
-    --accent: 28 92% 55%;
+    --accent: 30 85% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -32,14 +32,14 @@
 
     --border: 214 25% 90%;
     --input: 214 25% 90%;
-    --ring: 215 80% 48%;
+    --ring: 210 65% 58%;
 
     --radius: 0.75rem;
 
     --trust: 215 60% 95%;
-    --trust-foreground: 215 80% 35%;
+    --trust-foreground: 210 50% 40%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(215 80% 48%) 0%, hsl(215 70% 38%) 100%);
+    --hero-gradient: linear-gradient(135deg, hsl(210 65% 58%) 0%, hsl(210 55% 48%) 100%);
     --section-gradient: linear-gradient(180deg, hsl(210 33% 98%) 0%, hsl(210 40% 96%) 100%);
 
     --sidebar-background: 0 0% 98%;

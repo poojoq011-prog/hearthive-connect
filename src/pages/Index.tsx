@@ -37,6 +37,9 @@ const Index = () => (
     <section className="pt-16" style={{ background: "var(--hero-gradient)" }}>
       <div className="container-narrow section-padding">
         <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="flex justify-center order-first">
+            <img src={heroImage} alt="Community donating to children at an orphanage" width={1280} height={800} className="rounded-2xl shadow-2xl max-w-full" />
+          </div>
           <div>
             <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ color: "hsl(32 90% 68%)", background: "hsl(32 90% 68% / 0.15)" }}>
               Making Donations Meaningful
@@ -55,9 +58,6 @@ const Index = () => (
                 <Link to="/about">Learn More</Link>
               </Button>
             </div>
-          </div>
-          <div className="flex justify-center">
-            <img src={heroImage} alt="Community donating to children at an orphanage" width={1280} height={800} className="rounded-2xl shadow-2xl max-w-full" />
           </div>
         </div>
       </div>

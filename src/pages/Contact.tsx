@@ -45,33 +45,59 @@ const Contact = () => {
       return;
     }
     setSubmitting(true);
-    emailjs.send(
+    const templateParams = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      donationType: form.donationType,
+      message: form.message,
+    };
+
+    // ✅ 1. Owner Email
+    const ownerEmail = emailjs.send(
       "service_sncvs3b",
       "template_q7f9tf8",
-      {
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        donationType: form.donationType,
-        message: form.message,
-      },
+      templateParams,
       "WefqvNMdPlbMt9etZ"
-    )
+    );
+
+    // ✅ 2. Auto Reply Email
+    const autoReply = emailjs.send(
+      "service_sncvs3b",
+      "template_o0oiensD", // 👈 your auto-reply template
+      templateParams,
+      "WefqvNMdPlbMt9etZ"
+    );
+
+    // ✅ 3. Handle both properly
+    Promise.all([ownerEmail, autoReply])
       .then(() => {
-        toast({ title: "Success ", description: "Message sent successfully!" });
-        setForm({ name: "", email: "", phone: "", donationType: "", message: "" });
+        toast({
+          title: "Success",
+          description: "Message sent! Please check your email.",
+        });
+
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          donationType: "",
+          message: "",
+        });
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.log(error);
-        toast({ title: "Error ", description: "Failed to send message" });
+        toast({
+          title: "Error",
+          description: "Failed to send message",
+        });
       })
       .finally(() => {
         setSubmitting(false);
       });
-
-    setSubmitting(false);
-    setForm({ name: "", email: "", phone: "", donationType: "", message: "" });
   };
+
+
 
   return (
     <div className="min-h-screen">

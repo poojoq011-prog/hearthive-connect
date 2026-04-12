@@ -38,7 +38,7 @@ const Index = () => (
       <div className="container-narrow section-padding">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ color: "hsl(30 85% 60%)", background: "hsl(30 85% 60% / 0.15)" }}>
+            <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ color: "hsl(32 90% 68%)", background: "hsl(32 90% 68% / 0.15)" }}>
               Making Donations Meaningful
             </span>
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-tight mb-4">

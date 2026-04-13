@@ -34,7 +34,9 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     const result = donationSchema.safeParse(form);
+
     if (!result.success) {
       const fieldErrors: Partial<Record<keyof DonationForm, string>> = {};
       result.error.errors.forEach((err) => {
@@ -44,7 +46,9 @@ const Contact = () => {
       setErrors(fieldErrors);
       return;
     }
+
     setSubmitting(true);
+
     const templateParams = {
       name: form.name,
       email: form.email,
@@ -53,25 +57,27 @@ const Contact = () => {
       message: form.message,
     };
 
-    // ✅ 1. Owner Email
-    const ownerEmail = emailjs.send(
-      "service_sncvs3b",
-      "template_q7f9tf8",
-      templateParams,
-      "WefqvNMdPlbMt9etZ"
-    );
-
-    // ✅ 2. Auto Reply Email
-    const autoReply = emailjs.send(
-      "service_sncvs3b",
-      "template_o0oiensD", // 👈 your auto-reply template
-      templateParams,
-      "WefqvNMdPlbMt9etZ"
-    );
-
-    // ✅ 3. Handle both properly
-    Promise.all([ownerEmail, autoReply])
+    // ✅ Send emails (Owner → then Auto Reply)
+    emailjs
+      .send(
+        "service_sncvs3b",
+        "template_q7f9tf8",
+        templateParams,
+        "WefqvNMdPlbMt9etZ"
+      )
       .then(() => {
+        console.log("Owner mail sent");
+
+        return emailjs.send(
+          "service_sncvs3b",
+          "template_stqakpm",
+          templateParams,
+          "WefqvNMdPlbMt9etZ"
+        );
+      })
+      .then(() => {
+        console.log("Auto-reply sent");
+
         toast({
           title: "Success",
           description: "Message sent! Please check your email.",
@@ -85,8 +91,9 @@ const Contact = () => {
           message: "",
         });
       })
-      .catch((error: unknown) => {
+      .catch((error) => {
         console.log(error);
+
         toast({
           title: "Error",
           description: "Failed to send message",
@@ -96,9 +103,6 @@ const Contact = () => {
         setSubmitting(false);
       });
   };
-
-
-
   return (
     <div className="min-h-screen">
       <Navbar />

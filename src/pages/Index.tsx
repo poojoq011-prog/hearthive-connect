@@ -125,7 +125,7 @@ const Index = () => (
         <div className="grid md:grid-cols-4 gap-6">
           {process.map((p, i) => (
             <div key={i} className="relative text-center">
-              <div className="text-4xl font-heading font-extrabold text-primary/10 mb-2">{p.step}</div>
+              <div className="text-4xl font-heading font-extrabold mb-2" style={{ color: "#93c5fd" }}>{p.step}</div>
               <h3 className="font-heading font-semibold text-foreground mb-2">{p.title}</h3>
               <p className="text-sm text-muted-foreground">{p.desc}</p>
               {i < process.length - 1 && (
